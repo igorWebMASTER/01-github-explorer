@@ -12,7 +12,7 @@ module.exports ={
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['.js', '.jsx', 'ts', 'tsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'public'),
@@ -31,13 +31,10 @@ module.exports ={
         test: /\.(j|t)sx$/,
         exclude: /node_modules/,
         use: [
-          // ... other loaders
           {
-            loader: require.resolve('babel-loader'),
+            loader: 'babel-loader',
             options: {
-              // ... other options
               plugins: [
-                // ... other plugins
                 isDevelopment && require.resolve('react-refresh/babel'),
               ].filter(Boolean),
             },
